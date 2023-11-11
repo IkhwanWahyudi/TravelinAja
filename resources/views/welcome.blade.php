@@ -3,5 +3,5 @@
     @include('components.header')
     @include('components.body')
     @include('components.about')
-    {{-- @include('components.footer') --}}
+    @include('components.footer')
 @endsection
