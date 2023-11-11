@@ -4,4 +4,5 @@
     @include('components.body')
     @include('components.about')
     @include('components.footer')
+    @include('components.script')
 @endsection

@@ -10,6 +10,7 @@ class Tujuan extends Model
 {
     use HasFactory;
     protected $table = 'tujuans';
+    protected $fillable = ['destination', 'description', 'price'];
 
     public function pemesanan(): HasMany
     {

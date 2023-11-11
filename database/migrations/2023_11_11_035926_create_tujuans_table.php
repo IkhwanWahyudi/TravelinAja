@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tujuans', function (Blueprint $table) {
             $table->id();
             $table->string('destination');
+            $table->string('description');
             $table->integer('price');
             $table->timestamps();
         });

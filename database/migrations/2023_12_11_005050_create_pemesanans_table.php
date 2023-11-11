@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('tujuan_id')->constrained();
             $table->foreignId('kendaraan_id')->constrained();
             $table->string('duration');
+            $table->integer('number_of_passengers');
             $table->integer('total_price');
             $table->string('payment_receipt');
             $table->string('status');

@@ -1,8 +1,8 @@
 <div class="relative w-full h-screen">
-    <nav class="z-50 grid grid-flow-col w-full content-center justify-between fixed top-0 bg-transparent">
+    <nav id="scroll-bg" class="z-50 grid grid-flow-col w-full content-center justify-between fixed top-0 bg-transparent backdrop-blur-[2px]">
         <div class="w-full p-7 flex flex-row justify-around font-bold">
-            <p class="text-black p-3 pr-0">Travelin</p>
-            <p class="text-orange-600 p-3 pl-0">Aja</p>
+            <p class="text-[#1569A2] p-3 pr-0">Travelin</p>
+            <p class="text-[#F68712] p-3 pl-0">Aja</p>
         </div>
         <div class="w-full p-7 flex flex-row gap-10 justify-around font-bold">
             <p class="text-black p-3">Home</p>
