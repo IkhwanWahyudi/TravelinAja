@@ -8,7 +8,7 @@
             <p class="text-black p-3">Home</p>
             <p class="text-black p-3">FaQ</p>
             <p class="text-black p-3">About</p>
-            <a href="{{ route("login") }}">
+            <a href="{{ route("signin") }}">
                 <button class="bg-orange-500 px-5 py-3 rounded-lg text-white">Sign In</button>
             </a>
         </div>

@@ -7,7 +7,7 @@
                 <img src="{{ asset('assets/images/logo-white.png') }}" alt="" class="w-[100px]">
             </a>
             <div class="h-[400px] w-[500px] flex flex-col justify-around text-center rounded-lg z-40 bg-[#ffffff68]">
-                <form action="" method="post" class="w-full flex flex-col items-center">
+                <form action="{{ route('signin.action') }}" method="post" class="w-full flex flex-col items-center">
                     @csrf
                     @if(session('error'))
                         <div class="w-[350px] relative mb-6">
@@ -41,7 +41,7 @@
                     <button type="submit" class="w-[200px] h-auto py-4 mt-16 text-white font-medium bg-[#5f7251] rounded-md flex justify-center items-center hover:bg-[#49573e]">Sign In</button>
                 </form>
                 <div>
-                    <a href="" class="text-blue-500 hover:text-blue-900">Don't have an account?</a>
+                    <a href="{{ route('signup') }}" class="text-blue-500 hover:text-blue-900">Don't have an account?</a>
                 </div>
             </div>
         </div>
