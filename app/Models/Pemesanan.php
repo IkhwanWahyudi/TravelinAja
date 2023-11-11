@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Pemesanan extends Model
 {
     use HasFactory;
-    protected $table = 'transactions';
+    protected $table = 'pemesanans';
     protected $fillable = ['user_id', 'departure_date', 'tujuan_id', 'kendaraan_id', 'duration', 'payment_receipt', 'status'];
 
     public function idDestination(): BelongsTo

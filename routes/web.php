@@ -38,6 +38,6 @@ Route::post(
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard', [
-        'pemesanans'=>Pemesanan::all()
+        'pemesanan'=>Pemesanan::all()
     ]);
 })->name('admin');
