@@ -41,7 +41,7 @@
                         class="w-full ps-12 pe-4 py-2 bg-slate-50 rounded-sm ring-1 ring-slate-300 focus:outline-none focus:ring-[#F68712] text-[#F68712]">
                 </div>
                 <button type="submit"
-                    class="w-[200px] h-auto py-4 mt-16 text-white font-medium bg-[#F68712] rounded-md flex justify-center items-center hover:bg-[#f68812de]">Sign
+                    class="w-[200px] h-auto py-4 mt-16 text-white hover:text-black font-medium bg-[#F68712] hover:bg-[#c47726] rounded-md flex justify-center items-center hover:bg-[#f68812de]">Sign
                     In</button>
             </form>
             <div>
