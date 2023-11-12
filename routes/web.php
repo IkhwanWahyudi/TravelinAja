@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DestinationsController;
+use App\Http\Controllers\VehicleController;
 use App\Models\Kendaraan;
 use App\Models\Pemesanan;
 use App\Models\Tujuan;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,11 +48,21 @@ Route::get('/admin/dashboard', function () {
     ]);
 })->name('admin');
 
+Route::get('/customer/home', function () {
+    $userId = session('user_id');
+
+    return view('customer.dashboard', [
+        'destination' => Tujuan::all(),
+        'account' => User::find($userId),
+        'kendaraan' => Kendaraan::all(),
+    ]);
+})->name('customer');
+
 Route::get('/admin/user', function () {
     return view('admin.user', [
         'user'=>Pemesanan::where('role', '==', 'customer')->get()
     ]);
-})->name('booking');
+})->name('user');
 
 Route::get('/admin/booking', function () {
     return view('admin.booking', [
@@ -61,4 +74,30 @@ Route::get('/admin/history', function () {
     return view('admin.history', [
         'history'=>Pemesanan::where('status', '==', 'done')->get()
     ]);
-})->name('booking');
+})->name('history');
+
+Route::get('/admin/add-destination', function () {
+    return view('admin.add-destination');
+})->name('add-des');
+
+Route::get('/admin/add-vehicle', function () {
+    return view('admin.add-vehicle');
+})->name('add-veh');
+
+Route::controller(DestinationsController::class)->group(function () {
+    Route::post('/admin/add/action', 'store')->name('destination.store');
+    // Route::get('/admin/edit/{id}', 'edit')->name('admin.edit');
+    // Route::post('/admin/edit/{id}/action','update')->name('admin.update');
+    // Route::post('/admin/dashboard/delete/{id}/action', 'delete')->name('admin.delete');
+});
+
+Route::controller(VehicleController::class)->group(function () {
+    Route::post('/admin/add/action', 'store')->name('vehicle.store');
+    // Route::get('/admin/edit/{id}', 'edit')->name('admin.edit');
+    // Route::post('/admin/edit/{id}/action','update')->name('admin.update');
+    // Route::post('/admin/dashboard/delete/{id}/action', 'delete')->name('admin.delete');
+});
+
+Route::get('/signout', [
+    AuthController::class, 'logout'
+])->name('signout');

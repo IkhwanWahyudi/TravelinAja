@@ -3,19 +3,19 @@
 @section('content')
     @include('admin.navbar')
     <div class="w-full h-full flex">
-        <div class="w-full flex flex-col bg-[#985d44]">
+        <div class="w-full flex flex-col bg-[#1569A2]">
             <div class="h-auto m-4 p-8 bg-white rounded-lg drop-shadow-md">
-                <p class="text-4xl font-bold mb-4 text-[#985d44]">Destinations</p>
+                <p class="text-4xl font-bold mb-4 text-[#1569A2]">Destinations</p>
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
-                    {{-- <a href="{{ route('add') }}"> --}}
+                    <a href="{{ route('add-des') }}">
                     <button
                         class="px-4 py-2 bg-[#5f7251] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
-                    {{-- </a> --}}
+                    </a>
                 </div><br>
                 <div class="relative overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-[#985d44] uppercase bg-gray-300">
+                        <thead class="text-xs text-[#1569A2] uppercase bg-gray-300">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     ID
@@ -71,19 +71,19 @@
         </div>
     </div>
     <div class="w-full h-full flex">
-        <div class="w-full flex flex-col bg-[#985d44]">
+        <div class="w-full flex flex-col bg-[#1569A2]">
             <div class="h-auto m-4 p-8 bg-white rounded-lg drop-shadow-md">
-                <p class="text-4xl font-bold mb-4 text-[#985d44]">Vehicles</p>
+                <p class="text-4xl font-bold mb-4 text-[#1569A2]">Vehicles</p>
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
-                    {{-- <a href="{{ route('add') }}"> --}}
+                    <a href="{{ route('add-veh') }}">
                     <button
                         class="px-4 py-2 bg-[#5f7251] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
-                    {{-- </a> --}}
+                    </a>
                 </div><br>
                 <div class="relative overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-[#985d44] uppercase bg-gray-300">
+                        <thead class="text-xs text-[#1569A2] uppercase bg-gray-300">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     ID

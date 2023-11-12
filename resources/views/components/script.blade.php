@@ -9,4 +9,13 @@
             scrollBg.style.backgroundColor = '#FFFFFF00';
         }
     });
+
+    function scrollBehavior() {
+        var target = document.getElementById('targetScroll');
+
+        // Menggunakan metode scrollIntoView untuk mengatur scroll ke elemen target
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
 </script>

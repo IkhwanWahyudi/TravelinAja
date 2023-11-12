@@ -41,6 +41,7 @@ class AuthController extends Controller
         ];
         if (Auth::attempt($data)) {
             $user = Auth::user();
+            session(['user_id' => Auth::id()]);
             if ($user->role == "customer") {
                 return redirect('/customer/home');
             } elseif ($user->role == "admin") {
@@ -50,5 +51,12 @@ class AuthController extends Controller
             session()->flash('error', 'Username or password is incorrect!');
             return redirect('/auth');
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        session()->forget('user_id');
+        return redirect('/');
     }
 }

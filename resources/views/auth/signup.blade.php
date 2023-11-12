@@ -95,6 +95,6 @@
                 </div>
             </div>
         </div>
-        <img src="{{ asset('assets/images/signup.jpg') }}" alt="" class="w-screen h-screen object-cover -z-10">
+        <img src="{{ asset('assets/images/signup.jpeg') }}" alt="" class="w-screen h-screen object-cover -z-20">
     </div>
 @endsection
