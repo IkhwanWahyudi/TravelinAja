@@ -9,5 +9,5 @@ class Kendaraan extends Model
 {
     use HasFactory;
     protected $table = 'kendaraans';
-    protected $fillable = ['type', '', 'license_plate', 'maximum_passengers', 'price'];
+    protected $fillable = ['type', 'license_plate', 'maximum_passengers', 'price'];
 }
