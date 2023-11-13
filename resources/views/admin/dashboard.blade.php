@@ -10,7 +10,7 @@
                 <div class="w-full h-auto flex justify-end">
                     <a href="{{ route('add-des') }}">
                     <button
-                        class="px-4 py-2 bg-[#5f7251] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
+                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
                 <div class="relative overflow-x-auto">
@@ -51,7 +51,7 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="w-full h-auto flex justify-around">
-                                            {{-- <a href="{{ route('admin.edit', $dn->id) }}"> --}}
+                                            {{-- <a href="{{ route('edit-des', $dn->id) }}"> --}}
                                             <button
                                                 class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
                                             {{-- </a> --}}
@@ -78,7 +78,7 @@
                 <div class="w-full h-auto flex justify-end">
                     <a href="{{ route('add-veh') }}">
                     <button
-                        class="px-4 py-2 bg-[#5f7251] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
+                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
                 <div class="relative overflow-x-auto">
@@ -112,13 +112,13 @@
                                         {{ $index + 1 }}
                                     </th>
                                     <td class="px-6 py-4">
-                                        {{ $kd->jenis }}
+                                        {{ $kd->type }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $kd->plat }}
+                                        {{ $kd->license_plate }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $kd->maksimal_penumpang }}
+                                        {{ $kd->maximum_passengers }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $kd->price }}
@@ -128,7 +128,7 @@
                                             {{-- <a href="{{ route('admin.edit', $kd->id) }}"> --}}
                                             <button
                                                 class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
-                                            {{-- </a> --}}
+                                            </a>
                                             {{-- <form action="{{ route('admin.delete', $kd->id) }}" method="post">
                                                 @csrf --}}
                                             <button

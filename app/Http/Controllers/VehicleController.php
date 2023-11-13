@@ -12,8 +12,8 @@ class VehicleController extends Controller
         // Validasi input, termasuk validasi gambar
         $validatedData = $request->validate([
             'type' => 'required|string',
-            'plat' => 'required|string',
-            'max' => 'required|integer',
+            'license_plate' => 'required|string',
+            'maximum_passengers' => 'required|integer',
             'price' => 'required|integer',
             // 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Validasi untuk gambar
         ]);
