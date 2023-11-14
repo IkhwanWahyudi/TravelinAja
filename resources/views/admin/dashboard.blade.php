@@ -4,7 +4,7 @@
     @include('admin.navbar')
     <div class="w-full h-full flex">
         <div class="w-full flex flex-col bg-[#1569A2]">
-            <div class="h-auto m-4 p-8 bg-white rounded-lg drop-shadow-md">
+            <div class="h-screen m-4 p-8 bg-white rounded-lg drop-shadow-md">
                 <p class="text-4xl font-bold mb-4 text-[#1569A2]">Destinations</p>
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
@@ -51,15 +51,15 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="w-full h-auto flex justify-around">
-                                            {{-- <a href="{{ route('edit-des', $dn->id) }}"> --}}
+                                            <a href="{{ route('destination.edit', $dn->id) }}">
                                             <button
                                                 class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
-                                            {{-- </a> --}}
-                                            {{-- <form action="{{ route('admin.delete', $dn->id) }}" method="post">
-                                                @csrf --}}
+                                            </a>
+                                            <form action="{{ route('destination.delete', $dn->id) }}" method="post">
+                                                @csrf
                                             <button
                                                 class="px-4 py-2 bg-red-600 rounded-md text-black hover:bg-red-800 hover:text-white font-semibold">Delete</button>
-                                            {{-- </form> --}}
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
@@ -72,7 +72,7 @@
     </div>
     <div class="w-full h-full flex">
         <div class="w-full flex flex-col bg-[#1569A2]">
-            <div class="h-auto m-4 p-8 bg-white rounded-lg drop-shadow-md">
+            <div class="h-screen m-4 p-8 bg-white rounded-lg drop-shadow-md">
                 <p class="text-4xl font-bold mb-4 text-[#1569A2]">Vehicles</p>
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
@@ -125,15 +125,15 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="w-full h-auto flex justify-around">
-                                            {{-- <a href="{{ route('admin.edit', $kd->id) }}"> --}}
+                                            <a href="{{ route('vehicle.edit', $kd->id) }}">
                                             <button
                                                 class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
                                             </a>
-                                            {{-- <form action="{{ route('admin.delete', $kd->id) }}" method="post">
-                                                @csrf --}}
+                                            <form action="{{ route('kendaraan.delete', $kd->id) }}" method="post">
+                                                @csrf
                                             <button
                                                 class="px-4 py-2 bg-red-600 rounded-md text-black hover:bg-red-800 hover:text-white font-semibold">Delete</button>
-                                            {{-- </form> --}}
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

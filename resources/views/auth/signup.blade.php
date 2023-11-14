@@ -86,7 +86,7 @@
                         </div>
                         <input type="password" name="cpassword" placeholder="Confirm Password"
                             class="w-full ps-12 pe-4 py-2 bg-slate-50 rounded-sm ring-1 ring-slate-300 focus:outline-none focus:ring-[#1569A2] text-[#1569A2]">
-                        <input type="hidden" name="role" value="admin">
+                        <input type="hidden" name="role" value="customer">
                     </div>
                     <button type="submit" class="w-[200px] h-auto py-4 mt-16 text-white font-medium bg-[#1569A2] rounded-md flex justify-center items-center hover:bg-[#1e5c85]">Sign Up</button>
                 </form>

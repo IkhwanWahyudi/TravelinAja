@@ -35,4 +35,49 @@ class DestinationsController extends Controller
         // Redirect ke halaman yang sesuai, dan beri pesan sukses jika diperlukan
         return redirect()->route('admin')->with('success', 'Destinasi berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        return view('admin.edit-destination', [
+            'tujuans' => Tujuan::all()->where('id', $id)->first(),
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'destination' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|integer',
+        ]);
+        $des = Tujuan::findOrFail($id);
+        $des->update([
+            'destination' => $request->destination,
+            'description' => $request->description,
+            'price' => $request->price,
+        ]);
+        return redirect()->route('admin')->with('success', '');
+    }
+
+    public function delete($id)
+    {
+        // Temukan produk berdasarkan ID
+        $tujuan = Tujuan::findOrFail($id);
+
+        // Dapatkan nama file gambar yang terkait dengan produk
+        // $imagePath = $tujuan->image_path;
+
+        // Hapus file gambar dari sistem file jika ada
+        // if (!empty($imagePath)) {
+        //     $imagePath = public_path('assets/images/produk/') . $imagePath;
+        //     if (file_exists($imagePath)) {
+        //         unlink($imagePath);
+        //     }
+        // }
+
+        // Hapus produk dari database
+        $tujuan->delete();
+
+        return redirect()->route('admin')->with('success', 'Produk berhasil dihapus.');
+    }
 }

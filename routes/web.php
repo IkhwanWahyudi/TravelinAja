@@ -80,31 +80,31 @@ Route::get('/admin/add-destination', function () {
     return view('admin.add-destination');
 })->name('add-des');
 
-Route::get('/admin/edit-destination', function () {
-    return view('admin.edit-destination');
-})->name('edit-des');
+// Route::get('/admin/edit-destination', function () {
+//     return view('admin.edit-destination');
+// })->name('edit-des');
 
 Route::get('/admin/add-vehicle', function () {
     return view('admin.add-vehicle');
 })->name('add-veh');
 
-Route::get('/admin/edit-vehicle', function () {
-    return view('admin.edit-vehicle');
-})->name('edit-veh');
+// Route::get('/admin/edit-vehicle', function () {
+//     return view('admin.edit-vehicle');
+// })->name('edit-veh');
 
 
 Route::controller(DestinationsController::class)->group(function () {
     Route::post('/admin/add-destination/action', 'store')->name('destination.store');
-    // Route::get('/admin/edit-destination/{id}', 'edit')->name('destination.edit');
-    // Route::post('/admin/edit-destination/{id}/action','update')->name('destination.update');
-    // Route::post('/admin/dashboard/delete/{id}/action', 'delete')->name('admin.delete');
+    Route::get('/admin/edit-destination/{id}', 'edit')->name('destination.edit');
+    Route::post('/admin/edit-destination/{id}/action','update')->name('destination.update');
+    Route::post('/admin/dashboard/delete-destination/{id}/action', 'delete')->name('destination.delete');
 });
 
 Route::controller(VehicleController::class)->group(function () {
     Route::post('/admin/add-vehicle/action', 'store')->name('vehicle.store');
-    // Route::get('/admin/edit/{id}', 'edit')->name('admin.edit');
-    // Route::post('/admin/edit/{id}/action','update')->name('admin.update');
-    // Route::post('/admin/dashboard/delete/{id}/action', 'delete')->name('admin.delete');
+    Route::get('/admin/edit-vehicle/{id}', 'edit')->name('vehicle.edit');
+    Route::post('/admin/edit-vehicle/{id}/action','update')->name('vehicle.update');
+    Route::post('/admin/dashboard/delete-vehicle/{id}/action', 'delete')->name('kendaraan.delete');
 });
 
 Route::get('/signout', [

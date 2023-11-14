@@ -7,31 +7,31 @@
             <div class="w-auto h-auto m-8 p-10 bg-white flex flex-row rounded-lg drop-shadow-md self-center">
                 <p class="text-4xl font-bold mb-4 text-[#1C97E3] text-left">Update Our Excellent Vehicle</p>
                 <hr><br>
-                <form action="{{ route('vehicle.store') }}" method="post" class="w-full flex flex-col items-center" enctype="multipart/form-data">
+                <form action="{{ route('vehicle.update', $kendaraans->id) }}" method="post" class="w-full flex flex-col items-center" enctype="multipart/form-data">
                     @csrf
                     <div class="h-auto flex flex-col gap-5">
                         <div class="flex flex-col">
                             <p class="w-[100px] text-[#1b4966] font-semibold">Type</p>
                             {{-- <p class="w-[20px] text-[#1b4966]">:</p> --}}
-                            <input type="text" name="type" id=""
+                            <input type="text" name="type" id="" value="{{ $kendaraans->type }}"
                                 class="w-[500px] bg-slate-50 rounded-sm ring-1 ring-[#1b4966] focus:outline-none">
                         </div>
                         <div class="flex flex-col">
                             <p class="w-[100px] text-[#1b4966] font-semibold">License Plate</p>
                             {{-- <p class="w-[20px] text-[#1b4966]">:</p> --}}
                             <textarea name="license_plate" id=""
-                                class="w-[500px] bg-slate-50 rounded-sm ring-1 ring-[#1b4966] focus:outline-none"></textarea>
+                                class="w-[500px] bg-slate-50 rounded-sm ring-1 ring-[#1b4966] focus:outline-none">{{ $kendaraans->license_plate }}</textarea>
                         </div>
                         <div class="flex flex-col">
                             <p class="w-[190px] text-[#1b4966] font-semibold">Maximum Passengers</p>
                             {{-- <p class="w-[20px] text-[#1b4966]">:</p> --}}
-                            <input type="number" name="maximum_passengers" id="" min="1"
+                            <input type="number" name="maximum_passengers" id="" min="1" value="{{ $kendaraans->maximum_passengers }}"
                                 class="w-[500px] bg-slate-50 rounded-sm ring-1 ring-[#1b4966] focus:outline-none">
                         </div>
                         <div class="flex flex-col">
                             <p class="w-[100px] text-[#1b4966] font-semibold">Price</p>
                             {{-- <p class="w-[20px] text-[#1b4966]">:</p> --}}
-                            <input type="number" name="price" id="" min="0"
+                            <input type="number" name="price" id="" min="0" value="{{ $kendaraans->price }}"
                                 class="w-[500px] bg-slate-50 rounded-sm ring-1 ring-[#1b4966] focus:outline-none">
                         </div>
                         {{-- <div class="flex flex-col">
