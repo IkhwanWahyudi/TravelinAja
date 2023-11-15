@@ -41,69 +41,104 @@ Route::post(
     [AuthController::class, 'signinAction']
 )->name('signin.action');
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard', [
-        'destination'=>Tujuan::all(),
-        'kendaraan'=>Kendaraan::all()
-    ]);
-})->name('admin');
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/dashboard', function () {
+        $userId = session('user_id');
+        $user = User::find($userId);
 
-Route::get('/customer/home', function () {
-    $userId = session('user_id');
+        if ($user->role == 'admin') {
+            return view('admin.dashboard', [
+                'destination' => Tujuan::all(),
+                'kendaraan' => Kendaraan::all(),
+            ]);
+        } else {
+            return redirect()->route('customer')->with('error', 'Unauthorized access.');
+        }
+    })->name('admin');
 
-    return view('customer.dashboard', [
-        'destination' => Tujuan::all(),
-        'account' => User::find($userId),
-        'kendaraan' => Kendaraan::all(),
-    ]);
-})->name('customer');
+    Route::get('/admin/user', function () {
+        $userId = session('user_id');
+        $user = User::find($userId);
 
-Route::get('/admin/user', function () {
-    return view('admin.user', [
-        'user'=>Pemesanan::where('role', '==', 'customer')->get()
-    ]);
-})->name('user');
+        if ($user->role == 'admin') {
+            return view('admin.user', [
+                'user' => Pemesanan::where('role', '==', 'customer')->get()
+            ]);
+        } else {
+            return redirect()->route('customer')->with('error', 'Unauthorized access.');
+        }
+    })->name('user');
 
-Route::get('/admin/booking', function () {
-    return view('admin.booking', [
-        'pemesanan'=>Pemesanan::where('status', '==', 'waiting')->get()
-    ]);
-})->name('booking');
+    Route::get('/admin/booking', function () {
+        $userId = session('user_id');
+        $user = User::find($userId);
 
-Route::get('/admin/history', function () {
-    return view('admin.history', [
-        'history'=>Pemesanan::where('status', '==', 'done')->get()
-    ]);
-})->name('history');
+        if ($user->role == 'admin') {
+            return view('admin.booking', [
+                'pemesanan' => Pemesanan::where('status', '==', 'waiting')->get()
+            ]);
+        } else {
+            return redirect()->route('customer')->with('error', 'Unauthorized access.');
+        }
+    })->name('booking');
 
-Route::get('/admin/add-destination', function () {
-    return view('admin.add-destination');
-})->name('add-des');
+    Route::get('/admin/history', function () {
+        $userId = session('user_id');
+        $user = User::find($userId);
 
-// Route::get('/admin/edit-destination', function () {
-//     return view('admin.edit-destination');
-// })->name('edit-des');
+        if ($user->role == 'admin') {
+            return view('admin.history', [
+                'history' => Pemesanan::where('status', '==', 'done')->get()
+            ]);
+        } else {
+            return redirect()->route('customer')->with('error', 'Unauthorized access.');
+        }
+    })->name('history');
 
-Route::get('/admin/add-vehicle', function () {
-    return view('admin.add-vehicle');
-})->name('add-veh');
+    Route::get('/admin/add-destination', function () {
+        $userId = session('user_id');
+        $user = User::find($userId);
 
-// Route::get('/admin/edit-vehicle', function () {
-//     return view('admin.edit-vehicle');
-// })->name('edit-veh');
+        if ($user->role == 'admin') {
+            return view('admin.add-destination');
+        } else {
+            return redirect()->route('customer')->with('error', 'Unauthorized access.');
+        }
+    })->name('add-des');
 
+    Route::get('/admin/add-vehicle', function () {
+        $userId = session('user_id');
+        $user = User::find($userId);
+
+        if ($user->role == 'admin') {
+            return view('admin.add-vehicle');
+        } else {
+            return redirect()->route('customer')->with('error', 'Unauthorized access.');
+        }
+    })->name('add-veh');
+
+    Route::get('/customer/home', function () {
+        $userId = session('user_id');
+
+        return view('customer.dashboard', [
+            'destination' => Tujuan::all(),
+            'account' => User::find($userId),
+            'kendaraan' => Kendaraan::all(),
+        ]);
+    })->name('customer');
+});
 
 Route::controller(DestinationsController::class)->group(function () {
     Route::post('/admin/add-destination/action', 'store')->name('destination.store');
     Route::get('/admin/edit-destination/{id}', 'edit')->name('destination.edit');
-    Route::post('/admin/edit-destination/{id}/action','update')->name('destination.update');
+    Route::post('/admin/edit-destination/{id}/action', 'update')->name('destination.update');
     Route::post('/admin/dashboard/delete-destination/{id}/action', 'delete')->name('destination.delete');
 });
 
 Route::controller(VehicleController::class)->group(function () {
     Route::post('/admin/add-vehicle/action', 'store')->name('vehicle.store');
     Route::get('/admin/edit-vehicle/{id}', 'edit')->name('vehicle.edit');
-    Route::post('/admin/edit-vehicle/{id}/action','update')->name('vehicle.update');
+    Route::post('/admin/edit-vehicle/{id}/action', 'update')->name('vehicle.update');
     Route::post('/admin/dashboard/delete-vehicle/{id}/action', 'delete')->name('kendaraan.delete');
 });
 
