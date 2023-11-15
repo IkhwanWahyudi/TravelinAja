@@ -36,7 +36,7 @@
                         </thead>
                         <tbody>
                             @foreach ($destination as $index => $dn)
-                                <tr class="bg-white border-b hover:bg-[#5f7251] text-black font-medium hover:text-white">
+                                <tr class="bg-white border-b hover:bg-[#1f80f0] text-black font-medium hover:text-white">
                                     <th scope="row" class="px-6 py-4 whitespace-nowrap">
                                         {{ $index + 1 }}
                                     </th>
@@ -47,7 +47,7 @@
                                         {{ $dn->description }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $dn->price }}
+                                        Rp {{ number_format($dn->price, 0, ',', '.') }}
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="w-full h-auto flex justify-around">
@@ -107,7 +107,7 @@
                         </thead>
                         <tbody>
                             @foreach ($kendaraan as $index => $kd)
-                                <tr class="bg-white border-b hover:bg-[#5f7251] text-black font-medium hover:text-white">
+                                <tr class="bg-white border-b hover:bg-[#1f80f0] text-black font-medium hover:text-white">
                                     <th scope="row" class="px-6 py-4 whitespace-nowrap">
                                         {{ $index + 1 }}
                                     </th>
@@ -121,7 +121,7 @@
                                         {{ $kd->maximum_passengers }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $kd->price }}
+                                        {{ number_format($kd->price, 0, ',', '.') }}
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="w-full h-auto flex justify-around">
