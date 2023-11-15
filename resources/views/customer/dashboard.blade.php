@@ -54,6 +54,7 @@
             </div>
         </div>
     </div>
+    @include('customer.destination')
     @include('components.footer')
     @include('components.script')
 @endsection
