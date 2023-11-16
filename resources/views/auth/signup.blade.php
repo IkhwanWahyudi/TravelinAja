@@ -3,9 +3,6 @@
 @section('content')
     <div class="w-screen h-screen relative">
         <div class="w-screen h-screen absolute flex flex-col justify-around items-center bg-[#000000a0]">
-            <a href="{{ route('welcome') }}">
-                <img src="{{ asset('assets/images/logo-white.png') }}" alt="" class="w-[100px]">
-            </a>
             <div class="h-[570px] w-[500px] flex flex-col justify-around text-center rounded-lg z-40 bg-[#ffffffa5]">
                 <form action="{{ route('signup.action') }}" method="post" class="w-full flex flex-col items-center gap-3">
                     @csrf

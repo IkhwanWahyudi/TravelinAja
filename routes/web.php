@@ -131,6 +131,7 @@ Route::middleware('auth')->group(function () {
 Route::controller(DestinationsController::class)->group(function () {
     Route::post('/admin/add-destination/action', 'store')->name('destination.store');
     Route::get('/admin/edit-destination/{id}', 'edit')->name('destination.edit');
+    Route::get('/customer/booking/{id}', 'booking')->name('book');
     Route::post('/admin/edit-destination/{id}/action', 'update')->name('destination.update');
     Route::post('/admin/dashboard/delete-destination/{id}/action', 'delete')->name('destination.delete');
 });

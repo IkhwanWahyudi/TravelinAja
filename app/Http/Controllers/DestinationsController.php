@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kendaraan;
 use App\Models\Tujuan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DestinationsController extends Controller
@@ -39,6 +41,17 @@ class DestinationsController extends Controller
     public function edit($id)
     {
         return view('admin.edit-destination', [
+            'tujuans' => Tujuan::all()->where('id', $id)->first(),
+        ]);
+    }
+
+    public function booking($id)
+    {
+        $userId = session('user_id');
+
+        return view('customer.booking', [
+            'account' => User::find($userId),
+            'kendaraan' => Kendaraan::all(),
             'tujuans' => Tujuan::all()->where('id', $id)->first(),
         ]);
     }
