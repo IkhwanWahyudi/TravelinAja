@@ -1,11 +1,10 @@
 <div class="w-full h-full relative">
-    <h1 class="font-bold text-3xl flex place-content-center self-center"> Our Lovely Destination</h1>
+    <h1 class="font-bold text-3xl flex place-content-center self-center pt-10"> Our Lovely Destination</h1>
     @foreach ($destination as $index => $dn)
         <div class="flex flex-row justify-center py-10">
             <div class="flex bg-white rounded-lg hover:drop-shadow-2xl w-[80%] h-[400px] place-items-center p-7 justify-center gap-32">
                 <div class="w-10 h-72 bg-gray-400 basis-1/5 flex place-content-center rounded-lg">
-                    {{-- <img src="" alt="" class="w-full h-full"> --}}
-                    <p>Photo Destinasi</p>
+                    <img src="{{ asset('assets/images/tujuan/'. $dn->image) }}" alt="" class="w-full h-full rounded-lg">
                 </div>
                 <div class="flex flex-col gap-4">
                     <h2 class="font-bold text-2xl w-96">{{ $dn->destination }}</h2>

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('duration');
             $table->integer('number_of_passengers');
             $table->integer('total_price');
-            $table->string('payment_receipt');
             $table->string('status');
             $table->timestamps();
         });

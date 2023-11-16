@@ -15,7 +15,7 @@ class AuthController extends Controller
             $usernameExist = User::where("username", $request->username)->first();
             if ($usernameExist) {
                 session()->flash('error', 'Username sudah digunakan!');
-                return redirect('/register');
+                return redirect('/signup');
             }
             User::create([
                 'name' => $request->name,

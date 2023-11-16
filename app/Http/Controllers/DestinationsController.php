@@ -16,23 +16,22 @@ class DestinationsController extends Controller
             'destination' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|integer',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Validasi untuk gambar
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240', // Validasi untuk gambar
         ]);
 
-        // $lasttujuan = (int) Tujuan::max('id');
-        // $newtujuanId = $lasttujuan + 1; // ID Tujuan terakhir + 1
+        $validatedData['image'] = '';
 
-        // // Simpan gambar ke direktori yang diinginkan (public/assets/images/tujuan)
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-        //     $imageName = $newtujuanId . '.' . $image->getClientOriginalExtension();
-        //     $image->move(public_path('assets/images/tujuan'), $imageName);
+        $data = Tujuan::create($validatedData);
 
-        //     // Update kolom image_path dengan nama file gambar
-        //     $validatedData['image_path'] = $imageName;
-        // }
+        // Simpan gambar ke direktori yang diinginkan (public/assets/images/tujuan)
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $data->id . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/images/tujuan'), $imageName);
 
-        Tujuan::create($validatedData);
+            // Update kolom image_path dengan nama file gambar
+            $data->update(['image' => $imageName]);
+        }
 
         // Redirect ke halaman yang sesuai, dan beri pesan sukses jika diperlukan
         return redirect()->route('admin')->with('success', 'Destinasi berhasil ditambahkan.');
@@ -78,15 +77,15 @@ class DestinationsController extends Controller
         $tujuan = Tujuan::findOrFail($id);
 
         // Dapatkan nama file gambar yang terkait dengan produk
-        // $imagePath = $tujuan->image_path;
+        $imagePath = $tujuan->image;
 
         // Hapus file gambar dari sistem file jika ada
-        // if (!empty($imagePath)) {
-        //     $imagePath = public_path('assets/images/produk/') . $imagePath;
-        //     if (file_exists($imagePath)) {
-        //         unlink($imagePath);
-        //     }
-        // }
+        if (!empty($imagePath)) {
+            $imagePath = public_path('assets/images/tujuan/') . $imagePath;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
 
         // Hapus produk dari database
         $tujuan->delete();

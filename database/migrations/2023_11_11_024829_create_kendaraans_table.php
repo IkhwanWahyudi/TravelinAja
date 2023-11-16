@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('license_plate');
             $table->string('maximum_passengers');
             $table->integer('price'); // per orang
+            $table->string('status');
             $table->timestamps();
         });
     }

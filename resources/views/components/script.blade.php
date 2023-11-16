@@ -18,4 +18,13 @@
             behavior: 'smooth'
         });
     }
+
+    // Mendapatkan elemen input tanggal
+    var datePicker = document.getElementById('departure_date');
+
+    // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+    var today = new Date().toISOString().split('T')[0];
+
+    // Menetapkan tanggal hari ini sebagai nilai minimal
+    datePicker.min = today;
 </script>

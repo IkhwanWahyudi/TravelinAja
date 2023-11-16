@@ -10,7 +10,7 @@
                 <div class="w-full h-auto flex justify-end">
                     <a href="{{ route('add-des') }}">
                     <button
-                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
+                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
                 <div class="relative overflow-x-auto">
@@ -78,7 +78,7 @@
                 <div class="w-full h-auto flex justify-end">
                     <a href="{{ route('add-veh') }}">
                     <button
-                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#546548] rounded-md text text-black hover:text-white font-semibold">Add</button>
+                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
                 <div class="relative overflow-x-auto">

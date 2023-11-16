@@ -8,26 +8,46 @@
         <div
             class="flex bg-white rounded-lg hover:drop-shadow-2xl w-[80%] h-[400px] place-items-center p-7 justify-center gap-32">
             <div class="w-10 h-72 bg-gray-400 basis-1/5 flex place-content-center rounded-lg">
-                {{-- <img src="" alt="" class="w-full h-full"> --}}
-                <p>Photo Destinasi</p>
+                <img src="{{ asset('assets/images/tujuan/' . $tujuans->image) }}" alt=""
+                    class="w-full h-full rounded-lg">
             </div>
             <div class="flex flex-col gap-4">
                 <p class="text-base text-gray-600 font-normal w-96">{{ $tujuans->description }}</p>
                 <div class="flex flex-row w-full justify-around mt-2">
-                    <select name="vehicle" id="" class="w-40 bg-slate-100 rounded-md p-2">
-                        @foreach ($kendaraan as $kd)
-                        <option value="{{ $kd->id }}">{{ $kd->type }}</option>
-                        @endforeach
+                    <select name="vehicle" class="w-40 bg-slate-100 rounded-md p-2">
+                        @if (count($kendaraan) > 0)
+                            @foreach ($kendaraan as $kd)
+                                <option value="{{ $kd->id }}">{{ $kd->type }}</option>
+                            @endforeach
+                        @else
+                            <option value="" disabled>No vehicles available</option>
+                        @endif
                     </select>
                     <div class="flex flex-row w-full justify-center gap-3 place-items-center">
                         <p class="flex justify-center w-fit">Passengers</p>
-                        <input type="number" name="passengers" min="1" id="" class="w-24 p-2 bg-slate-100 rounded-md">
+                        <input type="number" name="passengers" min="1" class="w-24 p-2 bg-slate-100 rounded-md">
+                    </div>
+                </div>
+                <div class="flex flex-row w-full justify-around mt-2">
+                    <div class="flex flex-col">
+                        <p>Date</p>
+                        <input type="date" name="departure_date" id="departure_date">
+                    </div>
+                    <div class="flex flex-col w-full justify-center gap-3 place-items-center">
+                        <p class="flex justify-center w-fit">Duration</p>
+                        <div class="flex flex-row justify-center gap-3 place-items-center">
+                            <input type="number" name="duration" min="1" id=""
+                                class="w-24 p-2 bg-slate-100 rounded-md">
+                            <p>Days</p>
+                        </div>
                     </div>
                 </div>
                 <div class="flex flex-row w-fit h-fit gap-32">
-                    <p class="text-2xl font-extrabold text-[#F68712]">Rp. {{ number_format($tujuans->price, 0, ',', '.') }}
+                    <p class="text-2xl font-extrabold text-[#F68712]" id="">Rp.
+                        {{ number_format($tujuans->price, 0, ',', '.') }}
                     </p>
                 </div>
+                <input type="hidden" name="user" value="{{ $account->id }}">
                 <a href="" class="w-full">
                     <button class="bg-[#1569A2] hover:bg-[#0e466b] px-4 py-2 text-white rounded-md w-full">Buy
                         Now</button>

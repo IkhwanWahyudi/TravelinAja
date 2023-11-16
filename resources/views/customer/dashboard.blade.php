@@ -2,7 +2,7 @@
 @section('content')
     @include('customer.navbar')
     @include('customer.hero')
-    <div id="targetScroll" class="w-full h-screen bg-gradient-to-b from-[#6FBAC3F0] to-white grid place-items-center">
+    <div id="targetScroll" class="w-full h-screen bg-gradient-to-b from-[#6FBAC3F0] to-white grid place-items-center pt-24">
         <p class="text-3xl font-bold">Suggested Location</p>
         <div class="grid grid-flow-col gap-12">
             <div class="w-[300px] h-[400px] bg-slate-900 rounded-xl">
