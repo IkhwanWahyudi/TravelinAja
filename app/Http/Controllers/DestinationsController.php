@@ -57,17 +57,40 @@ class DestinationsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $tujuan = Tujuan::findOrFail($id);
+
+        $imagePath = $tujuan->image;
+
+        if (!empty($imagePath)) {
+            $imagePath = public_path('assets/images/tujuan/') . $imagePath;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
         $request->validate([
             'destination' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240', // Validasi untuk gambar
         ]);
+
         $des = Tujuan::findOrFail($id);
+
         $des->update([
             'destination' => $request->destination,
             'description' => $request->description,
             'price' => $request->price,
         ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $des->id . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/images/tujuan/'), $imageName);
+
+            $des->update(['image' => $imageName]);
+        }
+
         return redirect()->route('admin')->with('success', '');
     }
 
