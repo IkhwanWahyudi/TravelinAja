@@ -62,7 +62,7 @@ Route::middleware('auth')->group(function () {
 
         if ($user->role == 'admin') {
             return view('admin.user', [
-                'user' => Pemesanan::where('role', '==', 'customer')->get()
+                'user' => User::where('role', 'customer')->get()
             ]);
         } else {
             return redirect()->route('customer')->with('error', 'Unauthorized access.');
@@ -75,7 +75,7 @@ Route::middleware('auth')->group(function () {
 
         if ($user->role == 'admin') {
             return view('admin.booking', [
-                'pemesanan' => Pemesanan::where('status', '==', 'waiting')->get()
+                'pemesanan' => Pemesanan::where('status', 'waiting')->get()
             ]);
         } else {
             return redirect()->route('customer')->with('error', 'Unauthorized access.');
@@ -88,7 +88,7 @@ Route::middleware('auth')->group(function () {
 
         if ($user->role == 'admin') {
             return view('admin.history', [
-                'history' => Pemesanan::where('status', '==', 'done')->get()
+                'history' => Pemesanan::where('status', 'done')->get()
             ]);
         } else {
             return redirect()->route('customer')->with('error', 'Unauthorized access.');

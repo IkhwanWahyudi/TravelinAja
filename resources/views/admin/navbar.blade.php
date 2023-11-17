@@ -1,13 +1,13 @@
-<nav class="z-50 grid grid-flow-col w-full content-center justify-between sticky top-0 bg-white">
+<nav id="scrollBg" class="z-50 grid grid-flow-col w-full content-center justify-between sticky top-0 bg-transparent backdrop-blur-[2px]">
     <div class="w-full p-7 flex flex-row justify-around font-bold">
         <p class="text-[#1569A2] p-3 pr-0">Travelin</p>
         <p class="text-[#F68712] p-3 pl-0">Aja</p>
     </div>
     <div class="w-full p-7 flex flex-row gap-10 justify-around font-bold">
-        <p class="text-black p-3"><a href="{{route('admin')}}"> Dashboard</a></p>
-        <p class="text-black p-3">Pemesanan</p>
-        <p class="text-black p-3">Users</p>
-        <p class="text-black p-3">History Transaction</p>
+        <p class="text-black p-3"><a href="{{ route('admin') }}"> Dashboard</a></p>
+        <p class="text-black p-3"><a href="{{ route('booking') }}">Pemesanan</a></p>
+        <p class="text-black p-3"><a href="{{ route('user') }}">Users</a></p>
+        <p class="text-black p-3"><a href="{{ route('history') }}">History Transaction</a></p>
         <a href="{{ route('signout') }}" class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6 self-center">

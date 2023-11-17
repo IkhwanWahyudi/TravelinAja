@@ -12,9 +12,8 @@
                 </svg>
                 <p>{{ $account->name }}</p>
             </div>
-            <a href="{{route('customer')}}"><p class="text-black p-3">Home</p></a>
+            <a href="{{ route('customer') }}"><p class="text-black p-3">Home</p></a>
             <p class="text-black p-3">Booking</p>
-            <p class="text-black p-3">About</p>
             <a href="{{ route('signout') }}">
                 <button class="bg-[#F68712] px-5 py-3 rounded-lg text-white hover:bg-[#c47726] hover:text-black">Sign
                     Out</button>

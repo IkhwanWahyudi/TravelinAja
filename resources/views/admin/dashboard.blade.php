@@ -4,7 +4,7 @@
     @include('admin.navbar')
     <div class="w-full h-full flex">
         <div class="w-full flex flex-col bg-[#1569A2]">
-            <div class="h-screen m-4 p-8 bg-white rounded-lg drop-shadow-md">
+            <div class="h-full m-4 p-8 bg-white rounded-lg drop-shadow-md">
                 <p class="text-4xl font-bold mb-4 text-[#1569A2]">Destinations</p>
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
@@ -13,9 +13,9 @@
                         class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
-                <div class="relative overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-[#1569A2] uppercase bg-gray-300">
+                <div class="relative h-[500px] overflow-x-auto">
+                    <table class="w-full relative text-sm text-left text-gray-500">
+                        <thead class="text-xs sticky text-[#1569A2] uppercase bg-gray-300">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     ID
@@ -72,7 +72,7 @@
     </div>
     <div class="w-full h-full flex">
         <div class="w-full flex flex-col bg-[#1569A2]">
-            <div class="h-screen m-4 p-8 bg-white rounded-lg drop-shadow-md">
+            <div class="h-full m-4 p-8 bg-white rounded-lg drop-shadow-md">
                 <p class="text-4xl font-bold mb-4 text-[#1569A2]">Vehicles</p>
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
@@ -81,9 +81,9 @@
                         class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
-                <div class="relative overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-[#1569A2] uppercase bg-gray-300">
+                <div class="relative h-[500px] overflow-x-auto">
+                    <table class="w-full relative text-sm text-left text-gray-500">
+                        <thead class="text-xs sticky text-[#1569A2] uppercase bg-gray-300">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     ID

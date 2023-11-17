@@ -13,10 +13,25 @@
     function scrollBehavior() {
         var target = document.getElementById('targetScroll');
 
-        // Menggunakan metode scrollIntoView untuk mengatur scroll ke elemen target
         target.scrollIntoView({
             behavior: 'smooth'
         });
+    }
+
+    function scrollAbout(){
+        var target = document.getElementById('about');
+
+        target.scrollIntoView({
+            behavior:'smooth'
+        })
+    }
+
+    function scrollHome(){
+        var target = document.getElementById('home');
+
+        target.scrollIntoView({
+            behavior:'smooth'
+        })
     }
 
     // Mendapatkan elemen input tanggal
