@@ -23,7 +23,7 @@
         </div>
     </div>
     @include('customer.destination')
-    @include('customer.faq')
+    @include('components.faq')
     @include('components.footer')
     @include('components.script')
 @endsection

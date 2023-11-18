@@ -3,6 +3,7 @@
     @include('components.header')
     @include('components.body')
     @include('components.about')
+    @include('components.faq')
     @include('components.footer')
     @include('components.script')
 @endsection
