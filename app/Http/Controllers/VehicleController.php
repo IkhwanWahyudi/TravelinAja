@@ -16,7 +16,7 @@ class VehicleController extends Controller
             'kendaraan'=>$data
         ]);
     }
-    
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -24,6 +24,7 @@ class VehicleController extends Controller
             'license_plate' => 'required|string',
             'maximum_passengers' => 'required|integer',
             'price' => 'required|integer',
+            'status' => 'required|string',
         ]);
 
         Kendaraan::create($validatedData);

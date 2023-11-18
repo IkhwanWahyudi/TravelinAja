@@ -11,7 +11,7 @@
                     <p class="text-base text-gray-600 font-normal w-96">{{ $dn->description }}</p>
                     <div class="flex flex-row w-fit h-fit gap-32">
                         <p class="text-2xl font-extrabold text-[#F68712]">Rp. {{ number_format($dn->price, 0, ',', '.') }}</p>
-                        <a href="{{ route('book', $dn->id) }}">
+                        <a href="{{ route('user.booking1', $dn->id) }}">
                             <button class="bg-[#1569A2] hover:bg-[#0e466b] px-4 py-2 text-white rounded-md">Booking</button>
                         </a>
                     </div>

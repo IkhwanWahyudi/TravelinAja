@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pemesanans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->dateTime('departure_date');
+            $table->date('departure_date');
             $table->foreignId('tujuan_id')->constrained();
             $table->foreignId('kendaraan_id')->constrained();
             $table->string('duration');

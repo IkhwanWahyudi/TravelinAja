@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DestinationsController;
 use App\Http\Controllers\VehicleController;
 use App\Models\Kendaraan;
@@ -128,6 +129,16 @@ Route::middleware('auth')->group(function () {
         ]);
     })->name('customer');
 
+    Route::get('/customer/home', function () {
+        $userId = session('user_id');
+
+        return view('customer.dashboard', [
+            'destination' => Tujuan::all(),
+            'account' => User::find($userId),
+            'kendaraan' => Kendaraan::where('status', 'available')->get(),
+        ]);
+    })->name('customer');
+
     Route::get('/customer/account', function()
     {
         $userId = session('user_id');
@@ -155,6 +166,11 @@ Route::controller(VehicleController::class)->group(function () {
 Route::controller(AccountController::class)->group(function () {
     // Route::get('/customer/account/{id}', 'edit')->name('user.edit');
     Route::post('/admin/account/{id}/action', 'update')->name('user.update');
+});
+
+Route::controller(BookingController::class)->group(function () {
+    Route::get('/customer/booking/{id}', 'add')->name('user.booking1');
+    Route::post('/customer/booking/action', 'store')->name('user.booking');
 });
 
 Route::get('/signout', [
