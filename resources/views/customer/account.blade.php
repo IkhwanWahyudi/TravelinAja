@@ -3,11 +3,9 @@
     @include('customer.navbar')
 
     <div class="w-full h-full flex">
-        <div class="w-full h-screen flex flex-col bg-[#ffffff] py-12">
-            <div class="w-auto h-auto m-16 p-10 bg-[#cfcfcf] flex flex-row rounded-lg drop-shadow-md self-center">
-                <div class="flex flex-col">
-
-                </div>
+        <div class="w-full h-screen flex flex-col bg-[#ffffff] pt-12">
+            <h1 class="font-bold text-4xl self-center pt-16">Profile</h1>
+            <div class="w-auto h-auto m-16 px-32 py-8 bg-[#cfcfcf] flex flex-row rounded-lg drop-shadow-md self-center">
                 <form action="{{route('user.update', $account->id)}}" method="post" class="w-full flex flex-col items-center" enctype="multipart/form-data">
                     @csrf
                     <div class="h-auto flex flex-col gap-6">
