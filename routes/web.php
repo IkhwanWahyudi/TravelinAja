@@ -154,7 +154,7 @@ Route::middleware('auth')->group(function () {
             'account' => User::find($userId),
             'kendaraan' => Kendaraan::where('status', 'available')->get(),
         ]);
-    })->name('customer');
+    })->name('history');
 });
 
 Route::controller(DestinationsController::class)->group(function () {
