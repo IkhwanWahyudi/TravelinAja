@@ -23,6 +23,7 @@
         </div>
     </div>
     @include('customer.destination')
+    @include('customer.faq')
     @include('components.footer')
     @include('components.script')
 @endsection
