@@ -18,19 +18,19 @@
         });
     }
 
-    function scrollAbout(){
+    function scrollAbout() {
         var target = document.getElementById('about');
 
         target.scrollIntoView({
-            behavior:'smooth'
+            behavior: 'smooth'
         })
     }
 
-    function scrollHome(){
+    function scrollHome() {
         var target = document.getElementById('home');
 
         target.scrollIntoView({
-            behavior:'smooth'
+            behavior: 'smooth'
         })
     }
 
