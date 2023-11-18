@@ -153,7 +153,7 @@ Route::controller(VehicleController::class)->group(function () {
 });
 
 Route::controller(AccountController::class)->group(function () {
-    Route::get('/customer/account/{id}', 'edit')->name('user.edit');
+    // Route::get('/customer/account/{id}', 'edit')->name('user.edit');
     Route::post('/admin/account/{id}/action', 'update')->name('user.update');
 });
 
