@@ -135,10 +135,13 @@ Route::middleware('auth')->group(function () {
             'account' => User::find($userId),
         ]);
     })->name('account');
+
     Route::get('/customer/history', function () {
         $userId = session('user_id');
 
-        $pemesanan = Pemesanan::where('user_id', $userId)->first();
+        $pemesanan = Pemesanan::where('user_id', $userId)
+            ->where('status', 'progress')
+            ->first();
 
         if ($pemesanan) {
             $tujuan = Tujuan::find($pemesanan->tujuan_id);
