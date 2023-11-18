@@ -9,8 +9,8 @@
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
                     <a href="{{ route('add-des') }}">
-                    <button
-                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
+                        <button
+                            class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
                 <div class="relative h-[500px] overflow-x-auto">
@@ -52,13 +52,13 @@
                                     <td class="px-6 py-4">
                                         <div class="w-full h-auto flex justify-around">
                                             <a href="{{ route('destination.edit', $dn->id) }}">
-                                            <button
-                                                class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
+                                                <button
+                                                    class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
                                             </a>
                                             <form action="{{ route('destination.delete', $dn->id) }}" method="post">
                                                 @csrf
-                                            <button
-                                                class="px-4 py-2 bg-red-600 rounded-md text-black hover:bg-red-800 hover:text-white font-semibold">Delete</button>
+                                                <button
+                                                    class="px-4 py-2 bg-red-600 rounded-md text-black hover:bg-red-800 hover:text-white font-semibold">Delete</button>
                                             </form>
                                         </div>
                                     </td>
@@ -77,8 +77,8 @@
                 <hr><br>
                 <div class="w-full h-auto flex justify-end">
                     <a href="{{ route('add-veh') }}">
-                    <button
-                        class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
+                        <button
+                            class="px-4 py-2 bg-[#04AA6D] hover:bg-[#03915d] rounded-md text text-black hover:text-white font-semibold">Add</button>
                     </a>
                 </div><br>
                 <div class="relative h-[500px] overflow-x-auto">
@@ -126,18 +126,17 @@
                                     <td class="px-6 py-4">
                                         <div class="w-full h-auto flex justify-around">
                                             <a href="{{ route('vehicle.edit', $kd->id) }}">
-                                            <button
-                                                class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
+                                                <button
+                                                    class="px-4 py-2 bg-yellow-300 rounded-md text-black hover:bg-yellow-500 hover:text-white font-semibold">Edit</button>
                                             </a>
                                             <form action="{{ route('kendaraan.delete', $kd->id) }}" method="post">
                                                 @csrf
-                                            <button
-                                                class="px-4 py-2 bg-red-600 rounded-md text-black hover:bg-red-800 hover:text-white font-semibold">Delete</button>
+                                                <button
+                                                    class="px-4 py-2 bg-red-600 rounded-md text-black hover:bg-red-800 hover:text-white font-semibold">Delete</button>
                                             </form>
                                         </div>
                                     </td>
                                 </tr>
-                                
                             @endforeach
                         </tbody>
                     </table>

@@ -1,25 +1,26 @@
 @extends('layouts.landing')
 @section('content')
     @include('customer.navbar')
-
     <div class="w-full h-full flex">
         <div class="w-full h-screen flex flex-col bg-[#ffffff] pt-12">
             <h1 class="font-bold text-4xl self-center pt-16">Profile</h1>
             <div class="w-auto h-auto m-16 px-32 py-8 bg-[#cfcfcf] flex flex-row rounded-lg drop-shadow-md self-center">
-                <form action="{{route('user.update', $account->id)}}" method="post" class="w-full flex flex-col items-center" enctype="multipart/form-data">
+                <form action="{{ route('user.update', $account->id) }}" method="post"
+                    class="w-full flex flex-col items-center" enctype="multipart/form-data">
                     @csrf
                     <div class="h-auto flex flex-col gap-6">
                         <div class="flex flex-row gap-6">
                             <div class="flex flex-col">
                                 <p class="w-[100px] text-[#1b4a68] font-semibold">Full Name</p>
                                 {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                                <input type="text" name="name" id="" value="{{$account->name}}"
+                                <input type="text" name="name" id="" value="{{ $account->name }}"
                                     class="w-[300px] bg-slate-50 rounded-sm ring-1 p-1 ring-[#5f7251] focus:outline-none">
                             </div>
                             <div class="flex flex-col">
                                 <p class="w-[100px] text-[#1b4a68] font-semibold">Username</p>
                                 {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                                <input type="text" name="username" id="" value="{{$account->username}}" disabled
+                                <input type="text" name="username" id="" value="{{ $account->username }}"
+                                    disabled
                                     class="w-[200px] bg-slate-50 rounded-sm ring-1 p-1 ring-[#5f7251] focus:outline-none">
                             </div>
                         </div>
@@ -28,12 +29,12 @@
                             <p class="w-[100px] text-[#1b4a68] font-semibold">Address</p>
                             {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
                             <textarea name="address" id=""
-                                class="w-[525px] bg-slate-50 rounded-sm ring-1 p-1 ring-[#5f7251] focus:outline-none">{{$account->address}}</textarea>
+                                class="w-[525px] bg-slate-50 rounded-sm ring-1 p-1 ring-[#5f7251] focus:outline-none">{{ $account->address }}</textarea>
                         </div>
                         <div class="flex flex-col">
                             <p class="w-[100px] text-[#1b4a68] font-semibold">NIK</p>
                             {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                            <input type="number" name="nik" id="" min="0" value="{{$account->nik}}"
+                            <input type="number" name="nik" id="" min="0" value="{{ $account->nik }}"
                                 class="w-[525px] bg-slate-50 rounded-sm ring-1 p-1 ring-[#5f7251] focus:outline-none">
                         </div>
                     </div>
