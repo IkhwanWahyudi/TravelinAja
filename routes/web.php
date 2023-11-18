@@ -146,6 +146,15 @@ Route::middleware('auth')->group(function () {
             'account' => User::find($userId),
         ]);
     })->name('account');
+    Route::get('/customer/history', function () {
+        $userId = session('user_id');
+
+        return view('customer.history', [
+            'destination' => Tujuan::all(),
+            'account' => User::find($userId),
+            'kendaraan' => Kendaraan::where('status', 'available')->get(),
+        ]);
+    })->name('history');
 });
 
 Route::controller(DestinationsController::class)->group(function () {
