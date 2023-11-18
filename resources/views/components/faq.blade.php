@@ -20,7 +20,7 @@
         </div>
         <div class="w-60 h-40 bg-blue-400 p-2 rounded-3xl">
             <h1 class="font-bold text-base text-dark justify-center items-center flex ml-2 mt-2">Apakah pilihan kendaraannya banyak ?</h1>
-            <h2 class="font-bold text-sm text-white flex justify-center items-center mt-5 ml-2">Sudah pasti ! TravelinAja memiliki pilihan kendaraan yang sangat amat beragam.
+            <h2 class="font-bold text-sm text-white flex justify-center items-center mt-5 ml-2">Sudah pasti! TravelinAja memiliki pilihan kendaraan yang sangat amat beragam.
         </div>
         <div class="w-60 h-40 bg-blue-400 p-2 rounded-3xl">
             <h1 class="font-bold text-base text-dark justify-center items-center flex ml-2 mt-2">Apakah TravelinAja memiliki harga yang murah ?</h1>
