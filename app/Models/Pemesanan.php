@@ -10,7 +10,7 @@ class Pemesanan extends Model
 {
     use HasFactory;
     protected $table = 'pemesanans';
-    protected $fillable = ['user_id', 'departure_date', 'tujuan_id', 'kendaraan_id', 'duration', 'number_of_passengers', 'status'];
+    protected $fillable = ['user_id', 'departure_date', 'tujuan_id', 'kendaraan_id', 'duration', 'number_of_passengers', 'total_price','status'];
 
     public function idDestination(): BelongsTo
     {

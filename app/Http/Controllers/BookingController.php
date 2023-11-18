@@ -30,17 +30,18 @@ class BookingController extends Controller
             'total_price' => 'required|integer',
         ]);
 
-        $kendaraan = Kendaraan::where('id', $request->vehicle)->get();
-        $tujuan = Tujuan::where('id', $request->tujuan_id)->get();
+        $kendaraan = Kendaraan::where('id', $request->vehicle)->first();
+        $tujuan = Tujuan::where('id', $request->tujuan_id)->first();
 
         Pemesanan::create([
-            'user_id' => $request->user_id,
+            'user_id' => $request->user,
             'departure_date' => $request->departure_date,
             'tujuan_id' => $request->tujuan_id,
             'kendaraan_id' => $request->vehicle,
             'duration' => $request->duration,
             'number_of_passengers' => $request->passengers,
             'total_price' => ($request->duration * $kendaraan->price) + ($request->passengers * $tujuan->price),
+            'status' => 'progress',
         ]);
 
         return redirect()->route('customer')->with('success', '');

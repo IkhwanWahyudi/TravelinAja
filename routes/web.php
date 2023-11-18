@@ -90,7 +90,7 @@ Route::middleware('auth')->group(function () {
 
         if ($user->role == 'admin') {
             return view('admin.history', [
-                'history' => Pemesanan::where('status', 'done')->get()
+                'history' => Pemesanan::all()
             ]);
         } else {
             return redirect()->route('customer')->with('error', 'Unauthorized access.');
