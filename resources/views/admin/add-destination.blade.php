@@ -32,6 +32,7 @@
                             {{-- <p class="w-[20px] text-[#5f7251]">:</p> --}}
                             <input type="file" name="image" id="" class="text-[#206088]">
                         </div>
+                        <input type="hidden" name="status" value="available">
                     </div>
                     <button type="submit"
                         class="w-[200px] h-auto py-4 mt-16 text-black hover:text-white font-semibold bg-[#1C97E3] rounded-md flex justify-center items-center hover:bg-[#064a75]">Submit</button>

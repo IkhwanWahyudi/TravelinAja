@@ -30,6 +30,7 @@ class DestinationsController extends Controller
         ]);
 
         $validatedData['image'] = '';
+        $validatedData['status'] = 'available';
 
         $data = Tujuan::create($validatedData);
 
@@ -80,6 +81,7 @@ class DestinationsController extends Controller
             'description' => 'required|string',
             'price' => 'required|integer',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            'status' => 'required|string',
         ]);
 
         $des = Tujuan::findOrFail($id);
@@ -88,6 +90,7 @@ class DestinationsController extends Controller
             'destination' => $request->destination,
             'description' => $request->description,
             'price' => $request->price,
+            'status' => $request->status,
         ]);
 
         if ($request->hasFile('image')) {

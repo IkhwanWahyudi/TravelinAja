@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
 
         if ($user->role == 'admin') {
             return view('admin.dashboard', [
-                'destination' => Tujuan::all(),
+                'destination' => Tujuan::where('status', 'available')->get(),
                 'kendaraan' => Kendaraan::where('status', 'available')->get(),
             ]);
         } else {
@@ -123,17 +123,7 @@ Route::middleware('auth')->group(function () {
         $userId = session('user_id');
 
         return view('customer.dashboard', [
-            'destination' => Tujuan::all(),
-            'account' => User::find($userId),
-            'kendaraan' => Kendaraan::where('status', 'available')->get(),
-        ]);
-    })->name('customer');
-
-    Route::get('/customer/home', function () {
-        $userId = session('user_id');
-
-        return view('customer.dashboard', [
-            'destination' => Tujuan::all(),
+            'destination' => Tujuan::where('status', 'available')->get(),
             'account' => User::find($userId),
             'kendaraan' => Kendaraan::where('status', 'available')->get(),
         ]);

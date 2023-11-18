@@ -32,6 +32,7 @@ class BookingController extends Controller
 
         $kendaraan = Kendaraan::where('id', $request->vehicle)->first();
         $tujuan = Tujuan::where('id', $request->tujuan_id)->first();
+        $tujuan->update(['status' => 'not available']);
 
         Pemesanan::create([
             'user_id' => $request->user,
