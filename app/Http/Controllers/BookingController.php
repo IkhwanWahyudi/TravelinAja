@@ -33,6 +33,7 @@ class BookingController extends Controller
         $kendaraan = Kendaraan::where('id', $request->vehicle)->first();
         $tujuan = Tujuan::where('id', $request->tujuan_id)->first();
         $tujuan->update(['status' => 'not available']);
+        $kendaraan->update(['status' => 'not available']);
 
         Pemesanan::create([
             'user_id' => $request->user,
@@ -44,6 +45,20 @@ class BookingController extends Controller
             'total_price' => ($request->duration * $kendaraan->price) + ($request->passengers * $tujuan->price),
             'status' => 'progress',
         ]);
+
+        return redirect()->route('customer')->with('success', '');
+    }
+
+    public function finish(Request $request)
+    {
+        $pemesanan = Pemesanan::where('id', $request->id)->first();
+        $pemesanan->update(['status' => 'finish']);
+
+        $tujuan = Tujuan::where('id', $request->tujuan_id)->first();
+        $tujuan->update(['status' => 'available']);
+
+        $kendaraan = Kendaraan::where('id', $request->kendaraan_id)->first();
+        $kendaraan->update(['status' => 'available']);
 
         return redirect()->route('customer')->with('success', '');
     }

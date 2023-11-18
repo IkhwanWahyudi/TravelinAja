@@ -7,7 +7,7 @@
         <p class="text-black p-3"><a href="{{ route('admin') }}"> Dashboard</a></p>
         <p class="text-black p-3"><a href="{{ route('booking') }}">Pemesanan</a></p>
         <p class="text-black p-3"><a href="{{ route('user') }}">Users</a></p>
-        <p class="text-black p-3"><a href="{{ route('history') }}">History Transaction</a></p>
+        <p class="text-black p-3"><a href="{{ route('admin.history') }}">History Transaction</a></p>
         <a href="{{ route('signout') }}" class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6 self-center">

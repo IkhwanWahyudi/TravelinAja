@@ -5,7 +5,7 @@
     <div class="w-full h-screen flex flex-col bg-[#1C97E3] pt-16">
         <div class="w-auto h-auto m-16 px-32 py-8 bg-white flex flex-row rounded-lg drop-shadow-md self-center">
             <h2 class="font-bold text-3xl text-[#2b75a3]">Your Booking Description</h2>
-            <form action="" method="post"
+            <form action="{{ route('user.finish') }}" method="post"
                 class="w-full flex flex-col items-center" enctype="multipart/form-data">
                 @csrf
                 <div class="h-auto flex flex-col gap-6">
@@ -48,6 +48,9 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="tujuan_id" value="{{ $tujuan->id }}">
+                <input type="hidden" name="id" value="{{ $pemesanan->id }}">
+                <input type="hidden" name="kendaraan_id" value="{{ $kendaraan->id }}">
                 <button type="submit"
                     class="w-[200px] h-auto py-4 mt-16 text-black hover:text-white font-bold bg-[#1C97E3] rounded-md flex justify-center items-center hover:bg-[#064a75]">Finish Trip</button>
             </form>

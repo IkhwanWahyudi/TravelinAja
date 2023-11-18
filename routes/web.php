@@ -77,7 +77,7 @@ Route::middleware('auth')->group(function () {
 
         if ($user->role == 'admin') {
             return view('admin.booking', [
-                'pemesanan' => Pemesanan::where('status', 'waiting')->get()
+                'pemesanan' => Pemesanan::where('status', 'progress')->get()
             ]);
         } else {
             return redirect()->route('customer')->with('error', 'Unauthorized access.');
@@ -90,12 +90,12 @@ Route::middleware('auth')->group(function () {
 
         if ($user->role == 'admin') {
             return view('admin.history', [
-                'history' => Pemesanan::all()
+                'history' => Pemesanan::where('status', 'finish')->get()
             ]);
         } else {
-            return redirect()->route('customer')->with('error', 'Unauthorized access.');
+            return redirect()->route('admin')->with('error', '');
         }
-    })->name('history');
+    })->name('admin.history');
 
     Route::get('/admin/add-destination', function () {
         $userId = session('user_id');
@@ -180,6 +180,7 @@ Route::controller(AccountController::class)->group(function () {
 Route::controller(BookingController::class)->group(function () {
     Route::get('/customer/booking/{id}', 'add')->name('user.booking1');
     Route::post('/customer/booking/action', 'store')->name('user.booking');
+    Route::post('/customer/booking/finish', 'finish')->name('user.finish');
 });
 
 Route::get('/signout', [
