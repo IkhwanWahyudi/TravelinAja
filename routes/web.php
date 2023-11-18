@@ -139,8 +139,7 @@ Route::middleware('auth')->group(function () {
         ]);
     })->name('customer');
 
-    Route::get('/customer/account', function()
-    {
+    Route::get('/customer/account', function () {
         $userId = session('user_id');
         return view('customer.account', [
             'account' => User::find($userId),
@@ -149,11 +148,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/customer/history', function () {
         $userId = session('user_id');
 
-        return view('customer.history', [
-            'destination' => Tujuan::all(),
-            'account' => User::find($userId),
-            'kendaraan' => Kendaraan::where('status', 'available')->get(),
-        ]);
+        $pemesanan = Pemesanan::where('user_id', $userId)->first();
+
+        if ($pemesanan) {
+            $tujuan = Tujuan::find($pemesanan->tujuan_id);
+            $kendaraan = Kendaraan::find($pemesanan->kendaraan_id);
+
+            return view('customer.history', [
+                'account' => User::find($userId),
+                'pemesanan' => $pemesanan,
+                'tujuan' => $tujuan,
+                'kendaraan' => $kendaraan,
+            ]);
+        } else {
+            // Handle the case where no reservation is found
+            return redirect()->route('customer')->with('error', '');
+        }
     })->name('history');
 });
 

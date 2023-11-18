@@ -13,12 +13,12 @@
                         <div class="flex flex-col">
                             <p class="w-[100px] text-[#1b4a68] font-semibold text-xl">Destination</p>
                             {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                            <p class="">Destination</p>
+                            <p class="">{{ $tujuan->destination }}</p>
                         </div>
                         <div class="flex flex-col pl-72">
                             <p class="w-[140px] text-[#1b4a68] font-semibold text-xl">Departure Date</p>
                             {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                            <p class="">Date</p>
+                            <p class="">{{ $pemesanan->departure_date }}</p>
                         </div>
                     </div>
 
@@ -26,30 +26,25 @@
                         <div class="flex flex-col">
                             <p class="w-[100px] text-[#1b4a68] font-semibold text-xl">Vehicle</p>
                             {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                            <p class="">Vehicle</p>
+                            <p class="">{{ $kendaraan->type }}</p>
                         </div>
                         <div class="flex flex-col pl-72">
                             <p class="w-[220px] text-[#1b4a68] font-semibold text-xl">Number of Passengers</p>
                             {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                            <p class="">Jumlah Penumpang</p>
+                            <p class="">{{ $pemesanan->number_of_passengers }}</p>
                         </div>
                     </div>
 
                     <div class="flex flex-col">
                         <p class="w-[100px] text-[#1b4a68] font-semibold text-xl">Duration</p>
-                        <p>Duration</p>
+                        <p>{{ $pemesanan->duration }}</p>
                         {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
                     </div>
                     <div class="flex flex-row gap-6">
                         <div class="flex flex-col">
                             <p class="w-[100px] text-[#1b4a68] font-semibold text-xl">Total Price</p>
                             {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                            <p class="font-bold text-orange-500"> Rp Price</p>
-                        </div>
-                        <div class="flex flex-col pl-72">
-                            <p class="w-[140px] text-[#1b4a68] font-semibold text-xl">Status </p>
-                            {{-- <p class="w-[20px] text-[#1b4a68]">:</p> --}}
-                            <p class="">Status</p>
+                            <p class="font-bold text-orange-500"> {{ $pemesanan->total_price }}</p>
                         </div>
                     </div>
                 </div>
