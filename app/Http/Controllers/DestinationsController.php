@@ -6,9 +6,20 @@ use App\Models\Kendaraan;
 use App\Models\Tujuan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class DestinationsController extends Controller
 {
+
+    public function index()
+    {
+        $endpoint = env('BASE_ENV').'/api/admin/dashboard';
+        $data = Http::get($endpoint);
+        return view('admin.dashboard',[
+            'destinasi'=>$data
+        ]);
+    }
+
     public function store(Request $request)
     {
         // Validasi input, termasuk validasi gambar

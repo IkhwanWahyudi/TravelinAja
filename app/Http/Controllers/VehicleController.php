@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class VehicleController extends Controller
 {
+    public function index()
+    {
+        $endpoint = env('BASE_ENV').'/api/admin/dashboard';
+        $data = Http::get($endpoint);
+        return view('admin.dashboard',[
+            'kendaraan'=>$data
+        ]);
+    }
     public function store(Request $request)
     {
         // Validasi input, termasuk validasi gambar
