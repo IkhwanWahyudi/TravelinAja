@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DestinationsController;
 use App\Http\Controllers\VehicleController;
@@ -126,6 +127,14 @@ Route::middleware('auth')->group(function () {
             'kendaraan' => Kendaraan::all(),
         ]);
     })->name('customer');
+
+    Route::get('/customer/account', function()
+    {
+        $userId = session('user_id');
+        return view('customer.account', [
+            'account' => User::find($userId),
+        ]);
+    })->name('account');
 });
 
 Route::controller(DestinationsController::class)->group(function () {
@@ -141,6 +150,11 @@ Route::controller(VehicleController::class)->group(function () {
     Route::get('/admin/edit-vehicle/{id}', 'edit')->name('vehicle.edit');
     Route::post('/admin/edit-vehicle/{id}/action', 'update')->name('vehicle.update');
     Route::post('/admin/dashboard/delete-vehicle/{id}/action', 'delete')->name('kendaraan.delete');
+});
+
+Route::controller(AccountController::class)->group(function () {
+    Route::get('/customer/account/{id}', 'edit')->name('user.edit');
+    Route::post('/admin/account/{id}/action', 'update')->name('user.update');
 });
 
 Route::get('/signout', [
