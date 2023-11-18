@@ -22,29 +22,25 @@ class DestinationsController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input, termasuk validasi gambar
         $validatedData = $request->validate([
             'destination' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240', // Validasi untuk gambar
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
         $validatedData['image'] = '';
 
         $data = Tujuan::create($validatedData);
 
-        // Simpan gambar ke direktori yang diinginkan (public/assets/images/tujuan)
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $data->id . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('assets/images/tujuan'), $imageName);
 
-            // Update kolom image_path dengan nama file gambar
             $data->update(['image' => $imageName]);
         }
 
-        // Redirect ke halaman yang sesuai, dan beri pesan sukses jika diperlukan
         return redirect()->route('admin')->with('success', 'Destinasi berhasil ditambahkan.');
     }
 
@@ -83,7 +79,7 @@ class DestinationsController extends Controller
             'destination' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240', // Validasi untuk gambar
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
         $des = Tujuan::findOrFail($id);
@@ -107,13 +103,10 @@ class DestinationsController extends Controller
 
     public function delete($id)
     {
-        // Temukan produk berdasarkan ID
         $tujuan = Tujuan::findOrFail($id);
 
-        // Dapatkan nama file gambar yang terkait dengan produk
         $imagePath = $tujuan->image;
 
-        // Hapus file gambar dari sistem file jika ada
         if (!empty($imagePath)) {
             $imagePath = public_path('assets/images/tujuan/') . $imagePath;
             if (file_exists($imagePath)) {
@@ -121,7 +114,6 @@ class DestinationsController extends Controller
             }
         }
 
-        // Hapus produk dari database
         $tujuan->delete();
 
         return redirect()->route('admin')->with('success', 'Produk berhasil dihapus.');

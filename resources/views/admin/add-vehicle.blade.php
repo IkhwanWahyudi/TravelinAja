@@ -34,11 +34,7 @@
                             <input type="number" name="price" id="" min="0"
                                 class="w-[500px] bg-slate-50 rounded-sm ring-1 ring-[#1b4a68] focus:outline-none">
                         </div>
-                        {{-- <div class="flex flex-col">
-                            <p class="w-[100px] text-[#5f7251]">Photo</p>
-                            <p class="w-[20px] text-[#5f7251]">:</p>
-                            <input type="file" name="image" id="" class="text-[#5f7251]">
-                        </div> --}}
+                        <input type="hidden" name="status" value="available">
                     </div>
                     <button type="submit"
                     class="w-[200px] h-auto py-4 mt-16 text-black hover:text-white font-semibold bg-[#1C97E3] rounded-md flex justify-center items-center hover:bg-[#064a75]">Submit</button>

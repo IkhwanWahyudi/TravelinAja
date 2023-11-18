@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
         if ($user->role == 'admin') {
             return view('admin.dashboard', [
                 'destination' => Tujuan::all(),
-                'kendaraan' => Kendaraan::all(),
+                'kendaraan' => Kendaraan::where('status', 'available')->get(),
             ]);
         } else {
             return redirect()->route('customer')->with('error', 'Unauthorized access.');
@@ -124,7 +124,7 @@ Route::middleware('auth')->group(function () {
         return view('customer.dashboard', [
             'destination' => Tujuan::all(),
             'account' => User::find($userId),
-            'kendaraan' => Kendaraan::all(),
+            'kendaraan' => Kendaraan::where('status', 'available')->get(),
         ]);
     })->name('customer');
 
